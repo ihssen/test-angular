@@ -1,0 +1,25 @@
+.bloc {
+  width: 20rem;;
+  margin: 1rem;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  label {
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+  &.bgOrange { background-color: orange;}
+  &.bgGreen { background-color: green;}
+  &.bgYellow { background-color: yellow;}
+  #legend {
+    position: absolute;
+    top: -10px;
+    margin-left: 20px;
+    background-color: white;
+  }
+  .field {
+    margin-top: 10px;
+  }
+}
+

@@ -1,0 +1,34 @@
+<h1>Prise de rendez-vous en ligne</h1>
+
+<h3>Recharche d'un médecin</h3>
+
+<label>Spécialité: </label>
+<select name="specialties" (change)="changeSpecialty($event.target.value)">
+  <option> Liste des spécialités</option>
+  <option *ngFor="let specialty of specialties"
+    [value]="specialty">{{ specialty }}</option>
+</select>
+
+<h2> Liste des médecins: </h2>
+<table *ngIf="!!doctors.length">
+  <tr>
+    <th>Nom</th>
+    <th>Spécialité</th>
+    <th>Disponibilité</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let doctor of doctors">
+    <td> {{doctor.nom}} </td>
+    <td> {{doctor.specialite}} </td>
+    <td> {{doctor.disponibilite}} </td>
+    <td> <button [disabled]="!doctor.disponibilite" (click)="displayMeet(doctor.nom)">Prendre rendez-vous</button> </td>
+  </tr>
+</table>
+
+<div *ngIf="displayMeeting">
+  <input type="text" disabled [ngModel]="doctorName" />
+  <div>
+    <label>Nom de patient</label> <input type="text"/>
+  </div>
+  <button (click)="confirmMeet()">Confirmer</button>
+</div>

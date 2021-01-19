@@ -1,0 +1,5 @@
+<h1>Welcome to JetSet magazine !</h1>
+
+<div *ngFor="let party of parties">
+  <app-details-party [party]="party" (reservationRequest)="updateNbrPlace($event)"></app-details-party>
+</div>

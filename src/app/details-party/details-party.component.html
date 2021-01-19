@@ -1,0 +1,18 @@
+<div class="bloc"
+  [ngClass]="{
+    'bgOrange': party.nb_place > 0 && party.nb_place < 40,
+    'bgGreen': party.nb_place >= 40 && party.nb_place < 100,
+    'bgYellow': party.nb_place >= 100
+  }">
+  <div id="legend"> <label> {{ party.title}} </label></div>
+  <div class="field"> <label>Date: </label> {{ party.date}} </div>
+  <div class="field"> <label>type: </label> {{ party.type}} </div>
+  <div class="field"> <label>Nombre de place: </label> {{ party.nb_place}} </div>
+  <div class="field"> <label>Description: </label> {{ party.date}}</div>
+  <button (click)="displayBloc = true">réserver</button>
+  <ng-container *ngIf="displayBloc">
+    <div class="field"> <label>Nombre de place à réserver: </label> </div>
+    <div class="field"> <input type="number" placeholder="saisir un nombre" [(ngModel)]="reservationNbr" /></div>
+    <button (click)="validReservation(party)"> Valider </button>
+  </ng-container>
+</div>
